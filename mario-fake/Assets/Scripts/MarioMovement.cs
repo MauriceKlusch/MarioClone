@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MarioMovement : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public class MarioMovement : MonoBehaviour {
+	
+	[SerializeField] private float moveSpeed = default;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void Update() {
+        if (Input.GetKey(KeyCode.A)) {
+			transform.position = new Vector2(transform.position.x - (1f * moveSpeed * Time.deltaTime), 0f);
+		}
+		else if (Input.GetKey(KeyCode.D)) {
+			transform.position = new Vector2(transform.position.x + (1f * moveSpeed * Time.deltaTime), 0f);
+		}
     }
 }
