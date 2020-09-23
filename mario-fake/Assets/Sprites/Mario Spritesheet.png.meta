@@ -68,7 +68,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -354,27 +354,6 @@ TextureImporter:
       bones: []
       spriteID: ba9aa791252857c40800000000000000
       internalID: 5509453008284068267
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mario Spritesheet_10
-      rect:
-        serializedVersion: 2
-        x: 505
-        y: 178
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bebd56fc8a00af6b0800000000000000
-      internalID: -5261892489594938389
       vertices: []
       indices: 
       edges: []
