@@ -114,7 +114,6 @@ namespace mariofake {
 			}
 			// Let mario jump higher depending on how long the jump button is pressed
 			else if (rb2D.velocity.y > 0 && !isHoldingJumpButton) {
-				Debug.Log("Called");
 				rb2D.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime; // Unity applies 1 per default
 			}
 		}
