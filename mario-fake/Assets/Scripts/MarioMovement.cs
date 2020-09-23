@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace mariofake {
 
@@ -6,10 +7,11 @@ namespace mariofake {
 
 		[Header("Horizontal Movement")]
 		[SerializeField] private float moveSpeed = default;
+		[SerializeField] private float accelerationSpeed = default;
+		[SerializeField] private float looseMomentumSpeed = default;
 		[Header("Jumping")]
 		[SerializeField] private float jumpForce = default;
 		[SerializeField] private float jumpingCheckOffset = default;
-
 		[SerializeField] private float fallMultiplier = default;
 		[SerializeField] private float lowJumpMultiplier = default;
 		[Header("Ground detection")]
@@ -91,14 +93,38 @@ namespace mariofake {
 		private void LateUpdate() {
 
 			switch (horizontalDirection) {
+
 				case HorizontalDirection.Left:
-					rb2D.velocity = new Vector2(-1f * moveSpeed, rb2D.velocity.y);
+
+					if (rb2D.velocity.x > -moveSpeed) {
+						rb2D.velocity += new Vector2(-accelerationSpeed, 0f);
+					}
+					else {
+						rb2D.velocity = new Vector2(-moveSpeed, rb2D.velocity.y);
+					}					
 					break;
+
 				case HorizontalDirection.Right:
-					rb2D.velocity = new Vector2(1f * moveSpeed, rb2D.velocity.y);
+
+					if (rb2D.velocity.x < moveSpeed) {
+						rb2D.velocity += new Vector2(accelerationSpeed, 0f);
+					}
+					else {
+						rb2D.velocity = new Vector2(moveSpeed, rb2D.velocity.y);
+					}
 					break;
-				default:
-					rb2D.velocity = new Vector2(0f, rb2D.velocity.y);
+
+				case HorizontalDirection.None:
+
+					if (rb2D.velocity.x < 0) {
+						rb2D.velocity += new Vector2((float) Math.Pow(10, -looseMomentumSpeed), 0f);
+					}
+					else if (rb2D.velocity.x > 0) {
+						rb2D.velocity -= new Vector2((float)Math.Pow(10, -looseMomentumSpeed), 0f);
+					}
+					else {
+						rb2D.velocity = new Vector2(0f, rb2D.velocity.y);
+					}
 					break;
 			}
 
