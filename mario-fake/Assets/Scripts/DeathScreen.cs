@@ -11,12 +11,14 @@ namespace mariofake {
         [SerializeField] private GameObject deathScreen = default;
 
         private void Start() {
-            deathScreen.SetActive(false);
+            MarioHealth.OnMarioDeath += () => ShowDeathScreen();
         }
 
         public void ShowDeathScreen() {
             Time.timeScale = 0;
-            deathScreen.SetActive(true);
+            
+            if(deathScreen != null)
+                deathScreen.SetActive(true);
         }
 
         public void Respawn() {
