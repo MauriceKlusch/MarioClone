@@ -44,7 +44,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.03229642, y: 1.14}
+  m_Offset: {x: -0.011857986, y: 0.90238404}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -55,7 +55,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8810487, y: 0.14284325}
+  m_Size: {x: 0.76919174, y: 0.08235955}
   m_EdgeRadius: 0
 --- !u!1 &8076219417061270573
 GameObject:
@@ -196,18 +196,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.59775364}
+  m_Offset: {x: 0.0021600723, y: 0.47678566}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.1899999, y: 1.1955074}
+    oldSize: {x: 0.952, y: 0.95640594}
     newSize: {x: 1.175, y: 1.16537}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1899999, y: 1.1955073}
+  m_Size: {x: 0.94374275, y: 0.9535713}
   m_EdgeRadius: 0
 --- !u!95 &8076219417061270575
 Animator:
@@ -273,7 +273,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.5171204, y: 0.58}
+  m_Offset: {x: 0.4285555, y: 0.58}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -284,7 +284,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.07852745, y: 0.3079512}
+  m_Size: {x: 0.10013008, y: 0.3079512}
   m_EdgeRadius: 0
 --- !u!61 &8076219418228726155
 BoxCollider2D:
@@ -299,7 +299,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.5171204, y: 0.62}
+  m_Offset: {x: -0.3875122, y: 0.62}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -310,5 +310,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.07852745, y: 0.3079512}
+  m_Size: {x: 0.1303711, y: 0.3079512}
   m_EdgeRadius: 0
