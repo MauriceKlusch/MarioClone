@@ -6,8 +6,8 @@ using UnityEngine.UI;
 namespace mariofake {
     public class LevelTimer : MonoBehaviour {
         [SerializeField] private float levelTime = 120f;
-        [SerializeField] private Text timeText;
-        [SerializeField] private MarioHealth marioHealth;
+        [SerializeField] private Text timeText = default;
+        [SerializeField] private MarioHealth marioHealth = default;
 
         // Start is called before the first frame update
         void Start() {
