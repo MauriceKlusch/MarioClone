@@ -17,7 +17,9 @@ namespace mariofake {
 		[SerializeField] private float stickBlockFallSpeed = default;
 		[Header("Sneaking")]
 		[SerializeField] private BoxCollider2D normalBoxCollider = default;
+		[SerializeField] private BoxCollider2D normalBoxCollider2 = default;
 		[SerializeField] private BoxCollider2D sneakingBoxCollider = default;
+		[SerializeField] private BoxCollider2D sneakingBoxCollider2 = default;
 		[Header("Ground detection")]
 		[SerializeField] private Vector2 checkBoxSize = default;
 		[SerializeField] private LayerMask groundLayer = default;
@@ -46,7 +48,9 @@ namespace mariofake {
 			animator = GetComponent<Animator>();
 
 			normalBoxCollider.enabled = true;
+			normalBoxCollider2.enabled = true;
 			sneakingBoxCollider.enabled = false;
+			sneakingBoxCollider2.enabled = false;
 		}
 
 		void Update() {			
@@ -66,12 +70,16 @@ namespace mariofake {
 			if (Input.GetKey(KeyCode.A) && !isSneaking) {
 				horizontalDirection = HorizontalDirection.Left;
 				animator.SetBool("Walking", true);
-				transform.localScale = new Vector3(-1f, 1f, 1f);
+				if (transform.localScale.x > 0) {
+					transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+				}				
 			}
 			else if (Input.GetKey(KeyCode.D) && !isSneaking) {
 				horizontalDirection = HorizontalDirection.Right;
 				animator.SetBool("Walking", true);
-				transform.localScale = Vector3.one;
+				if (transform.localScale.x < 0) {
+					transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+				}				
 			}
 			else {
 				horizontalDirection = HorizontalDirection.None;
@@ -95,13 +103,17 @@ namespace mariofake {
 				isSneaking = true;
 				animator.SetBool("Sneaking", true);
 				normalBoxCollider.enabled = false;
+				normalBoxCollider2.enabled = false;
 				sneakingBoxCollider.enabled = true;
+				sneakingBoxCollider2.enabled = true;
 				horizontalDirection = HorizontalDirection.None;
             }
 			else {
 				isSneaking = false;
 				normalBoxCollider.enabled = true;
+				normalBoxCollider2.enabled = true;
 				sneakingBoxCollider.enabled = false;
+				sneakingBoxCollider2.enabled = false;
 				animator.SetBool("Sneaking", false);
 			}						
 		}
