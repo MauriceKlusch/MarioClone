@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelect : MonoBehaviour
 {
+
+    [SerializeField] private GameObject MainbMenu = default;
+    [SerializeField] private GameObject LevelbSelect = default;
+
     public void Level1()
     {
         SceneManager.LoadScene(1);
@@ -16,5 +20,10 @@ public class LevelSelect : MonoBehaviour
     public void Level3()
     {
         SceneManager.LoadScene(3);
+    }
+    public void BackButton()
+    {
+        LevelbSelect.SetActive(false);
+        MainbMenu.SetActive(true);
     }
 }
