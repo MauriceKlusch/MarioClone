@@ -135,6 +135,8 @@ GameObject:
   - component: {fileID: 1770286272}
   - component: {fileID: 1770286271}
   - component: {fileID: 1770286270}
+  - component: {fileID: 1770286274}
+  - component: {fileID: 1770286273}
   m_Layer: 10
   m_Name: Tilemap
   m_TagString: Ground
@@ -168,7 +170,7 @@ TilemapCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
@@ -9308,6 +9310,147 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!66 &1770286273
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770286268}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1770286270}
+    m_ColliderPaths:
+    - - X: 470000000
+        Y: 100000000
+      - X: 460000000
+        Y: 100000000
+      - X: 460000000
+        Y: 50000000
+      - X: 420000000
+        Y: 50000000
+      - X: 420000000
+        Y: 100000000
+      - X: 410000000
+        Y: 100000000
+      - X: 410000000
+        Y: 40000000
+      - X: 470000000
+        Y: 40000000
+    - - X: 360000000
+        Y: 70000000
+      - X: 270000000
+        Y: 70000000
+      - X: 270000000
+        Y: 60000000
+      - X: 360000000
+        Y: 60000000
+    - - X: 240000000
+        Y: 40000000
+      - X: 170000000
+        Y: 40000000
+      - X: 170000000
+        Y: 30000000
+      - X: 240000000
+        Y: 30000000
+    - - X: 140000000
+        Y: 20000000
+      - X: 90000000
+        Y: 20000000
+      - X: 90000000
+        Y: 10000000
+      - X: 140000000
+        Y: 10000000
+    - - X: 640000000
+        Y: -10000000
+      - X: 80000000
+        Y: -10000000
+      - X: 80000000
+        Y: 0
+      - X: 70000000
+        Y: 0
+      - X: 70000000
+        Y: -10000000
+      - X: -60000000
+        Y: -10000000
+      - X: -60000000
+        Y: 0
+      - X: -70000000
+        Y: 0
+      - X: -70000000
+        Y: -10000000
+      - X: -430000000
+        Y: -10000000
+      - X: -430000000
+        Y: -100000000
+      - X: 640000000
+        Y: -100000000
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 46.999973, y: 4}
+      - {x: 46.999973, y: 10}
+      - {x: 46, y: 9.99997}
+      - {x: 45.999973, y: 5}
+      - {x: 42, y: 5.0000296}
+      - {x: 41.999973, y: 10}
+      - {x: 41, y: 9.99997}
+      - {x: 41.00003, y: 4}
+    - - {x: 35.999973, y: 6}
+      - {x: 35.999973, y: 7}
+      - {x: 27, y: 6.9999704}
+      - {x: 27.000029, y: 6}
+    - - {x: 23.999971, y: 3}
+      - {x: 23.999971, y: 4}
+      - {x: 17, y: 3.999971}
+      - {x: 17.000029, y: 3}
+    - - {x: 13.999971, y: 1}
+      - {x: 13.999971, y: 2}
+      - {x: 9, y: 1.9999708}
+      - {x: 9.00003, y: 1}
+    - - {x: 63.99997, y: -10}
+      - {x: 63.99997, y: -1}
+      - {x: 8, y: -0.9999706}
+      - {x: 7.9999704, y: 0}
+      - {x: 7, y: -0.000029300001}
+      - {x: 6.9999704, y: -1}
+      - {x: -6, y: -0.9999706}
+      - {x: -6.000029, y: 0}
+      - {x: -7, y: -0.000029300001}
+      - {x: -7.0000296, y: -1}
+      - {x: -43, y: -1.0000293}
+      - {x: -42.999973, y: -10}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+--- !u!50 &1770286274
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770286268}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1900682050
 GameObject:
   m_ObjectHideFlags: 0
@@ -9468,6 +9611,10 @@ PrefabInstance:
     - target: {fileID: 7377965080727294502, guid: a2280ae2e25a9aa4ea507db807254367, type: 3}
       propertyPath: stickBlockFallSpeed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7377965080727294502, guid: a2280ae2e25a9aa4ea507db807254367, type: 3}
+      propertyPath: moveSpeed
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7377965080727294505, guid: a2280ae2e25a9aa4ea507db807254367, type: 3}
       propertyPath: m_LocalPosition.x
