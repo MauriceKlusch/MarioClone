@@ -15,8 +15,6 @@ namespace mariofake {
         private uint currentHealth;
         private float invinsibleCounter;
 
-        public static event UnityAction OnMarioDeath;
-
         private void Start() {
             currentHealth = maxHealth;
         }
@@ -40,8 +38,7 @@ namespace mariofake {
                 }
                 
                 if (currentHealth == 0) {
-                    Destroy(gameObject);
-                    OnMarioDeath?.Invoke();
+                    Destroy(gameObject);;
                 }
 
                 MakeInvincible(invincibleTime);
@@ -55,6 +52,11 @@ namespace mariofake {
 
         private void RemoveInvincibility() {
             skinRenderer.color = new Color(skinRenderer.color.r, skinRenderer.color.g, skinRenderer.color.b, 1f);
+        }
+
+        public void KillMario() {
+            currentHealth = 0;
+            Destroy(gameObject);
         }
     }
 
