@@ -9,10 +9,12 @@ namespace mariofake {
 public class DeathScreen : MonoBehaviour
 {
     
-        int currentscene = Convert.ToInt32(SceneManager.GetActiveScene());
+        
        public void Respawn()
         {
-            SceneManager.LoadScene(currentscene);
+
+            Scene scene = SceneManager.GetActiveScene(); 
+            SceneManager.LoadScene(scene.name);
         }
         public void TitleScreen()
         {
