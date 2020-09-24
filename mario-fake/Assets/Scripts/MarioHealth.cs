@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace mariofake {
 
@@ -13,6 +14,8 @@ namespace mariofake {
 
         private uint currentHealth;
         private float invinsibleCounter;
+
+        public static event UnityAction OnMarioDeath;
 
         private void Start() {
             currentHealth = maxHealth;
@@ -38,6 +41,7 @@ namespace mariofake {
                 
                 if (currentHealth == 0) {
                     Destroy(gameObject);
+                    OnMarioDeath?.Invoke();
                 }
 
                 MakeInvincible(invincibleTime);
