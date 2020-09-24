@@ -5,7 +5,23 @@ namespace mariofake {
 
 	public class MarioMovement : MonoBehaviour {
 
-		[Header("Horizontal Movement")]
+		public static MarioMovement Instance;
+
+        private void Awake() {
+            if (Instance == null) {
+				Instance = this;
+				marioHealth = GetComponent<MarioHealth>();
+            }
+			else {
+				Destroy(gameObject);
+            }
+        }
+
+		public MarioHealth marioHealth;
+		public bool IsInvincible { get => marioHealth.IsInvincible; }
+		public bool IsJumping { get => isJumping; }
+
+        [Header("Horizontal Movement")]
 		[SerializeField] private float moveSpeed = default;
 		[SerializeField] private float accelerationSpeed = default;
 		[SerializeField] private float looseMomentumSpeed = default;
