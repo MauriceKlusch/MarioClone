@@ -7,6 +7,7 @@ namespace mariofake {
     public class LevelTimer : MonoBehaviour {
         [SerializeField] private float levelTime = 120f;
         [SerializeField] private Text timeText;
+        [SerializeField] private MarioHealth marioHealth;
 
         // Start is called before the first frame update
         void Start() {
@@ -21,7 +22,7 @@ namespace mariofake {
             timeText.text = minutes + ":" + seconds;
 
             if (levelTime < 0) {
-                // todo: die
+                marioHealth.KillMario();
             }
         }
     }
