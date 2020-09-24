@@ -17,7 +17,7 @@ namespace mariofake {
             }
         }
 
-		public MarioHealth marioHealth;
+		private MarioHealth marioHealth;
 		public bool IsInvincible { get => marioHealth.IsInvincible; }
 		public bool IsJumping { get => isJumping; }
 
@@ -80,6 +80,7 @@ namespace mariofake {
 
 			if (isJumping && isGrounded && timeToWaitBeforeJumpingCheck <= 0) {
 				isJumping = false;
+				stopVelocity = false;
 				animator.SetBool("Jumping", false);
 			}
 			
