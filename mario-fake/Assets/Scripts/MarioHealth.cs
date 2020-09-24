@@ -17,6 +17,7 @@ namespace mariofake {
         private uint currentHealth;
         private float invinsibleCounter;
 
+        public float InvincibleTime { get => invincibleTime; }
         public bool IsInvincible { get => invinsibleCounter > 0; }
 
         private void Start() {
@@ -34,7 +35,7 @@ namespace mariofake {
         }
 
         private void OnTriggerEnter2D(Collider2D collision) {
-            if (collision.gameObject.tag == "Enemy" && invinsibleCounter <= 0 && MarioMovement.Instance && !MarioMovement.Instance.IsJumping) {
+            if (collision.gameObject.tag == "Enemy" && invinsibleCounter <= 0 && MarioMovement.Instance && MarioMovement.Instance.Velocity.y >= 0) {
                 currentHealth--;
 
                 if (currentHealth == shrinkSizeAtHealth) {
