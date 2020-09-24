@@ -36,6 +36,8 @@ namespace mariofake {
         }
 
         public void GoToMainMenu() {
+            Time.timeScale = 1;
+            isPaused = false;
             SceneManager.LoadScene(0);
         }
     }
