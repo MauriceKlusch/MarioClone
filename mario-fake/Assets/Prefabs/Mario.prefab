@@ -195,9 +195,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09814e7f6c5d51f41b70396fc4ec7f75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marioHealth: {fileID: 0}
   moveSpeed: 8
   accelerationSpeed: 0.6
-  looseMomentumSpeed: 4
+  looseMomentumSpeed: 1.4
   jumpForce: 10
   jumpingCheckOffset: 0.25
   fallMultiplier: 3.2
@@ -320,7 +321,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.15, y: 2.315983}
+    oldSize: {x: 0.92, y: 1.8527864}
     newSize: {x: 1.1650001, y: 2.3257384}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -346,7 +347,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.15, y: 2.315983}
+    oldSize: {x: 0.92, y: 1.8527864}
     newSize: {x: 1.1650001, y: 2.3257384}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
