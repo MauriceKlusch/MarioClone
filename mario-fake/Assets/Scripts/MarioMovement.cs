@@ -19,9 +19,10 @@ namespace mariofake {
 		[SerializeField] private BoxCollider2D normalBoxCollider = default;
 		[SerializeField] private BoxCollider2D sneakingBoxCollider = default;
 		[Header("Ground detection")]
-		[SerializeField] private float groundCheckRadius = default;
+		[SerializeField] private Vector2 checkBoxSize = default;
 		[SerializeField] private LayerMask groundLayer = default;
-		[SerializeField] private Transform marioBottom = default;
+		[SerializeField] private Transform marioBottomLeft = default;
+		[SerializeField] private Transform marioBottomRight = default;
 
 		private Rigidbody2D rb2D;
 		private Animator animator;
@@ -50,8 +51,10 @@ namespace mariofake {
 
 		void Update() {			
 
-			Collider2D collider = Physics2D.OverlapCircle(marioBottom.position, groundCheckRadius, groundLayer);
-			isGrounded = collider ? true : false;
+			Collider2D collider = Physics2D.OverlapBox(marioBottomLeft.position, checkBoxSize, 0, groundLayer);
+			Collider2D collider2 = Physics2D.OverlapBox(marioBottomRight.position, checkBoxSize, 0, groundLayer);
+
+			isGrounded = collider || collider2 ? true : false;
 
 			if (timeToWaitBeforeJumpingCheck > 0) timeToWaitBeforeJumpingCheck -= Time.deltaTime;
 

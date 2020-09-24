@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7377965080727294505}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1794211444530952977
 BoxCollider2D:
@@ -118,6 +118,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7377965081950802208}
+  - {fileID: 6741305705081905791}
   - {fileID: 1289769601927783503}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -141,13 +142,15 @@ MonoBehaviour:
   jumpingCheckOffset: 0.25
   fallMultiplier: 3.2
   lowJumpMultiplier: 2.5
+  stickBlockFallSpeed: 0
   normalBoxCollider: {fileID: 7377965080727294501}
   sneakingBoxCollider: {fileID: 1110913685889341470}
-  groundCheckRadius: 0.03
+  checkBoxSize: {x: 0.03, y: 0.5}
   groundLayer:
     serializedVersion: 2
     m_Bits: 1024
-  marioBottom: {fileID: 7377965081950802208}
+  marioBottomLeft: {fileID: 7377965081950802208}
+  marioBottomRight: {fileID: 6741305705081905791}
 --- !u!212 &7377965080727294503
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -301,7 +304,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7377965081950802208}
   m_Layer: 0
-  m_Name: Mario Bottom
+  m_Name: Mario Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -315,9 +318,39 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7377965081950802209}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.527, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7377965080727294505}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9171674156278420306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6741305705081905791}
+  m_Layer: 0
+  m_Name: Mario Right
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6741305705081905791
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9171674156278420306}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.553, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7377965080727294505}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
