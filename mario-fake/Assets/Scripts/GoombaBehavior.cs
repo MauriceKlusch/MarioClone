@@ -30,6 +30,7 @@ namespace mariofake {
         }
 
         private void OnTriggerEnter2D(Collider2D collision) {
+            Debug.Log("PAPAPA");
             if (collision.CompareTag("Ground")) {
                 horizontalDirection = GetOppositeDirection(horizontalDirection);
             }
