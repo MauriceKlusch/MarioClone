@@ -284,17 +284,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeathScreenCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 8368053565088225815, guid: 8eba37ae102a83443abe75745df37d0f, type: 3}
-      propertyPath: deathScreen
-      value: 
-      objectReference: {fileID: 916381242}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8eba37ae102a83443abe75745df37d0f, type: 3}
---- !u!1 &916381242 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8368053565088225811, guid: 8eba37ae102a83443abe75745df37d0f, type: 3}
-  m_PrefabInstance: {fileID: 916381241}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1770286268
 GameObject:
   m_ObjectHideFlags: 0

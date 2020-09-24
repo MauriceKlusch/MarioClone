@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace mariofake {
 
@@ -10,6 +11,8 @@ namespace mariofake {
         [SerializeField] private float invincibleTime = default;
         [SerializeField] [Range(0f, 1f)] private float alphaValue = default;
         [SerializeField] private SpriteRenderer skinRenderer = default;
+
+        public static event UnityAction OnMarioDeath;
 
         private uint currentHealth;
         private float invinsibleCounter;
@@ -39,7 +42,8 @@ namespace mariofake {
                 }
                 
                 if (currentHealth == 0) {
-                    Destroy(gameObject);;
+                    OnMarioDeath?.Invoke();
+                    Destroy(gameObject);
                 }
 
                 MakeInvincible(invincibleTime);
@@ -56,6 +60,7 @@ namespace mariofake {
         }
 
         public void KillMario() {
+            OnMarioDeath?.Invoke();
             currentHealth = 0;
             Destroy(gameObject);
         }
