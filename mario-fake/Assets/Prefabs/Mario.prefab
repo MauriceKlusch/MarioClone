@@ -66,10 +66,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1289769601927783503}
-  - component: {fileID: 1794211444530952977}
-  - component: {fileID: 525456178668932796}
+  - component: {fileID: 2661658946563891403}
+  - component: {fileID: 1268525331309186572}
   m_Layer: 14
-  m_Name: Jump Trigger Colliders
+  m_Name: Fall Trigger Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,7 +89,7 @@ Transform:
   m_Father: {fileID: 7377965080727294505}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1794211444530952977
+--- !u!61 &2661658946563891403
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,20 +102,20 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.45276576, y: 0.9146556}
+  m_Offset: {x: -0.43608603, y: 0.9200269}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.1650001, y: 2.3257384}
+    oldSize: {x: 0.92, y: 1.8527864}
     newSize: {x: 1.1650001, y: 2.3257384}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.07330814, y: 1.829311}
+  m_Size: {x: 0.024225771, y: 1.7485411}
   m_EdgeRadius: 0
---- !u!61 &525456178668932796
+--- !u!61 &1268525331309186572
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,18 +128,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.38140428, y: 0.91465557}
+  m_Offset: {x: 0.36933577, y: 0.92530656}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.1650001, y: 2.3257384}
+    oldSize: {x: 0.92, y: 1.8527864}
     newSize: {x: 1.1650001, y: 2.3257384}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.05469215, y: 1.8293111}
+  m_Size: {x: 0.025642008, y: 1.773179}
   m_EdgeRadius: 0
 --- !u!1 &7377965080727294498
 GameObject:
@@ -207,7 +207,7 @@ MonoBehaviour:
   normalBoxCollider2: {fileID: 1865467799748957239}
   sneakingBoxCollider: {fileID: 1110913685889341470}
   sneakingBoxCollider2: {fileID: 6059713757543628012}
-  checkBoxSize: {x: 0.03, y: 0.5}
+  checkBoxSize: {x: 0.003, y: 0.25}
   groundLayer:
     serializedVersion: 2
     m_Bits: 1024
