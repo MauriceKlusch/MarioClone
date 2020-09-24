@@ -1,5 +1,5 @@
 health
 visibility
-nicht am block kleben bleiben
+nicht am block kleben bleiben DONE
 nur velocity loose when sneaken (leichter ohne sneaken)
-better ground detection with left and right pos check (man kann nicht springen wenn man so steht -> http://prntscr.com/umo7du)
+better ground detection with left and right pos check (man kann nicht springen wenn man so steht -> http://prntscr.com/umo7du) DONE
