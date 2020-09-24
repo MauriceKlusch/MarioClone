@@ -14,6 +14,10 @@ namespace mariofake {
 		[SerializeField] private float jumpingCheckOffset = default;
 		[SerializeField] private float fallMultiplier = default;
 		[SerializeField] private float lowJumpMultiplier = default;
+		[SerializeField] private float stickBlockFallSpeed = default;
+		[Header("Sneaking")]
+		[SerializeField] private BoxCollider2D normalBoxCollider = default;
+		[SerializeField] private BoxCollider2D sneakingBoxCollider = default;
 		[Header("Ground detection")]
 		[SerializeField] private float groundCheckRadius = default;
 		[SerializeField] private LayerMask groundLayer = default;
@@ -32,11 +36,16 @@ namespace mariofake {
 		private bool isHoldingJumpButton;
 		private float timeToWaitBeforeJumpingCheck;
 
+		private bool stopVelocity;
+
 		private bool isSneaking;
 
 		private void Start() {
 			rb2D = GetComponent<Rigidbody2D>();
 			animator = GetComponent<Animator>();
+
+			normalBoxCollider.enabled = true;
+			sneakingBoxCollider.enabled = false;
 		}
 
 		void Update() {			
@@ -82,51 +91,56 @@ namespace mariofake {
 			if (Input.GetKey(KeyCode.S) && !isJumping) {
 				isSneaking = true;
 				animator.SetBool("Sneaking", true);
+				normalBoxCollider.enabled = false;
+				sneakingBoxCollider.enabled = true;
 				horizontalDirection = HorizontalDirection.None;
             }
 			else {
 				isSneaking = false;
+				normalBoxCollider.enabled = true;
+				sneakingBoxCollider.enabled = false;
 				animator.SetBool("Sneaking", false);
 			}						
 		}
 
 		private void LateUpdate() {
 
-			switch (horizontalDirection) {
+			if (!stopVelocity) {
+				switch (horizontalDirection) {
 
-				case HorizontalDirection.Left:
+					case HorizontalDirection.Left:
 
-					if (rb2D.velocity.x > -moveSpeed) {
-						rb2D.velocity += new Vector2(-accelerationSpeed, 0f);
-					}
-					else {
-						rb2D.velocity = new Vector2(-moveSpeed, rb2D.velocity.y);
-					}					
-					break;
+						if (rb2D.velocity.x > -moveSpeed) {
+							rb2D.velocity += new Vector2(-accelerationSpeed, 0f);
+						} else {
+							rb2D.velocity = new Vector2(-moveSpeed, rb2D.velocity.y);
+						}
+						break;
 
-				case HorizontalDirection.Right:
+					case HorizontalDirection.Right:
 
-					if (rb2D.velocity.x < moveSpeed) {
-						rb2D.velocity += new Vector2(accelerationSpeed, 0f);
-					}
-					else {
-						rb2D.velocity = new Vector2(moveSpeed, rb2D.velocity.y);
-					}
-					break;
+						if (rb2D.velocity.x < moveSpeed) {
+							rb2D.velocity += new Vector2(accelerationSpeed, 0f);
+						} else {
+							rb2D.velocity = new Vector2(moveSpeed, rb2D.velocity.y);
+						}
+						break;
 
-				case HorizontalDirection.None:
+					case HorizontalDirection.None:
 
-					if (rb2D.velocity.x < 0) {
-						rb2D.velocity += new Vector2((float) Math.Pow(10, -looseMomentumSpeed), 0f);
-					}
-					else if (rb2D.velocity.x > 0) {
-						rb2D.velocity -= new Vector2((float)Math.Pow(10, -looseMomentumSpeed), 0f);
-					}
-					else {
-						rb2D.velocity = new Vector2(0f, rb2D.velocity.y);
-					}
-					break;
+						if (rb2D.velocity.x < 0) {
+							rb2D.velocity += new Vector2((float)Math.Pow(10, -looseMomentumSpeed), 0f);
+						} else if (rb2D.velocity.x > 0) {
+							rb2D.velocity -= new Vector2((float)Math.Pow(10, -looseMomentumSpeed), 0f);
+						} else {
+							rb2D.velocity = new Vector2(0f, rb2D.velocity.y);
+						}
+						break;
+				}
 			}
+			else {
+				rb2D.velocity = new Vector2(0f, -stickBlockFallSpeed);
+            }
 
 			if (readyToJump) {				
 				rb2D.velocity += new Vector2(0f, jumpForce);
@@ -144,6 +158,17 @@ namespace mariofake {
 			}
 		}
 
-	}
+        private void OnTriggerEnter2D(Collider2D collision) {
+            if (collision.CompareTag("Ground") && isJumping) {
+				stopVelocity = true;
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D collision) {
+			if (collision.CompareTag("Ground") && isJumping) {
+				stopVelocity = false;
+			}
+		}
+    }
 
 }
