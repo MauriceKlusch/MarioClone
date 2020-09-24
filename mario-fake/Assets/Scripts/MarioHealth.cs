@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 
 namespace mariofake {
 
@@ -14,6 +13,8 @@ namespace mariofake {
 
         private uint currentHealth;
         private float invinsibleCounter;
+
+        public bool IsInvincible { get => invinsibleCounter > 0; }
 
         private void Start() {
             currentHealth = maxHealth;
@@ -30,7 +31,7 @@ namespace mariofake {
         }
 
         private void OnTriggerEnter2D(Collider2D collision) {
-            if (collision.gameObject.tag == "Enemy" && invinsibleCounter <= 0) {
+            if (collision.gameObject.tag == "Enemy" && invinsibleCounter <= 0 && MarioMovement.Instance && !MarioMovement.Instance.IsJumping) {
                 currentHealth--;
 
                 if (currentHealth == shrinkSizeAtHealth) {
