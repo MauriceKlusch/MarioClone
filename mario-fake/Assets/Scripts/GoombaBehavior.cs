@@ -57,8 +57,8 @@ namespace mariofake {
             }
 
             // Wenn mario goomba auf den Kopf springt (goomba dead)
-            else if (collision.CompareTag("Player") && MarioMovement.Instance && !MarioMovement.Instance.IsInvincible) {
-
+            else if (collision.CompareTag("Player") && MarioMovement.Instance && !MarioMovement.Instance.IsInvincible && MarioMovement.Instance.Velocity.y < 0) {
+                Debug.Log("FAGAG");
                 Destroy(rb2D);
                 mainPhysicsCollider.enabled = false;
 
@@ -66,7 +66,7 @@ namespace mariofake {
 
                 foreach (GameObject g in children) {
                     g.SetActive(false);
-                }              
+                }
 
                 ChangeToDeadSprite();
 
