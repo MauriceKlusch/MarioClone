@@ -35,7 +35,7 @@ namespace mariofake {
         }
 
         private void OnTriggerEnter2D(Collider2D collision) {
-            if (collision.gameObject.tag == "Enemy" && invinsibleCounter <= 0 && MarioMovement.Instance && MarioMovement.Instance.Velocity.y >= 0) {
+            if (collision.gameObject.tag == "Enemy" && invinsibleCounter <= 0) {
                 currentHealth--;
 
                 if (currentHealth == shrinkSizeAtHealth) {
