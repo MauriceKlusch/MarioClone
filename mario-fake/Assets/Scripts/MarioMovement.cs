@@ -16,9 +16,12 @@ namespace mariofake {
             }
         }
 
-        private MarioHealth marioHealth;
-        public bool IsInvincible { get => marioHealth.IsInvincible; }
-        public bool IsJumping { get => isJumping; }
+		private MarioHealth marioHealth;
+		public Vector2 Velocity { get => rb2D.velocity; }
+		public bool IsInvincible { get => marioHealth.IsInvincible; }
+
+		public float InvincibleTime { get => marioHealth.InvincibleTime; }
+		public bool IsJumping { get => isJumping; }
 
         [Header("Horizontal Movement")]
         [SerializeField] private float moveSpeed = default;
