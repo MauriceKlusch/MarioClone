@@ -25,7 +25,7 @@ namespace mariofake {
 
             int nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
 
-            if (nextLevel > 2) {
+            if (nextLevel > 3) {
                 SceneManager.LoadScene(0);
             } else {
                 SceneManager.LoadScene(nextLevel);
