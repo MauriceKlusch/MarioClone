@@ -14,7 +14,7 @@ namespace mariofake {
 
         public static event UnityAction OnMarioDeath;
 
-        private uint currentHealth;
+        public uint currentHealth;
         private float invinsibleCounter;
 
         public bool IsInvincible { get => invinsibleCounter > 0; }
@@ -40,7 +40,7 @@ namespace mariofake {
                 if (currentHealth == shrinkSizeAtHealth) {
                     transform.localScale = smallScale;
                 }
-                
+
                 if (currentHealth == 0) {
                     OnMarioDeath?.Invoke();
                     Destroy(gameObject);

@@ -333,7 +333,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6628237881057247859}
         m_TargetAssemblyTypeName: mariofake.PauseMenu, Assembly-CSharp
-        m_MethodName: Restart
+        m_MethodName: GoToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -456,6 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 6628237882246317872}
+  marioHealth: {fileID: 0}
 --- !u!1 &6628237881487636033
 GameObject:
   m_ObjectHideFlags: 0

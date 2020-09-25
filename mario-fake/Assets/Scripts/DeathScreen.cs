@@ -16,8 +16,8 @@ namespace mariofake {
 
         public void ShowDeathScreen() {
             Time.timeScale = 0;
-            
-            if(deathScreen != null)
+
+            if (deathScreen != null)
                 deathScreen.SetActive(true);
         }
 

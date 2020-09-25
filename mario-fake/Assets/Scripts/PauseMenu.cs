@@ -7,12 +7,13 @@ namespace mariofake {
     public class PauseMenu : MonoBehaviour {
 
         [SerializeField] private GameObject pauseMenu = default;
+        [SerializeField] private MarioHealth marioHealth = default;
 
         public static bool isPaused = false;
 
         // Update is called once per frame
         void Update() {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) && marioHealth.currentHealth != 0)
                 if (isPaused)
                     Resume();
                 else
@@ -39,7 +40,6 @@ namespace mariofake {
 
         public void GoToMainMenu() {
             Time.timeScale = 1;
-            isPaused = false;
             SceneManager.LoadScene(0);
         }
     }
