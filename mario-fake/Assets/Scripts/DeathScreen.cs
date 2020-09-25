@@ -11,7 +11,7 @@ namespace mariofake {
         [SerializeField] private GameObject deathScreen = default;
 
         private void Start() {
-            MarioHealth.OnMarioDeath += () => ShowDeathScreen();
+            MarioHealth.OnMarioDeath += ShowDeathScreen;
         }
 
         public void ShowDeathScreen() {
