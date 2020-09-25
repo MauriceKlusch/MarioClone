@@ -214,6 +214,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6628237881057247859, guid: 6a07752ba861c6e488977e5109a7c395, type: 3}
+      propertyPath: marioHealth
+      value: 
+      objectReference: {fileID: 3741725359339623044}
     - target: {fileID: 6628237881057247870, guid: 6a07752ba861c6e488977e5109a7c395, type: 3}
       propertyPath: m_Name
       value: PauseCanvas
