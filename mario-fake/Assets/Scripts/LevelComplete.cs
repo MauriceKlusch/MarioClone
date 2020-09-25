@@ -1,17 +1,33 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace mariofake {
 
     public class LevelComplete : MonoBehaviour {
 
-        private void OnTriggerEnter2D(Collider2D collision) {   
+        private bool triggered;
+
+        [SerializeField] private AudioSource levelCompleteSound = default;
+        [SerializeField] private AudioSource mapLevel = default;
+
+        private void OnTriggerEnter2D(Collider2D collision) {
+            if (!triggered)
+                StartCoroutine(Func());
+        }
+
+        private IEnumerator Func() {
+            triggered = true;
+            mapLevel.Stop();
+            levelCompleteSound.Play();
+
+            yield return new WaitUntil(() => levelCompleteSound.isPlaying == false);
+
             int nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
 
             if (nextLevel > 2) {
                 SceneManager.LoadScene(0);
-            }
-            else {
+            } else {
                 SceneManager.LoadScene(nextLevel);
             }
         }

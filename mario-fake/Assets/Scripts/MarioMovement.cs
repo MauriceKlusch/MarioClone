@@ -43,6 +43,8 @@ namespace mariofake {
         [SerializeField] private LayerMask groundLayer = default;
         [SerializeField] private Transform marioBottomLeft = default;
         [SerializeField] private Transform marioBottomRight = default;
+        [Header("Sounds")]
+        [SerializeField] private AudioSource jumpSound = default;
 
         private Rigidbody2D rb2D;
         private Animator animator;
@@ -136,10 +138,6 @@ namespace mariofake {
             }
         }
 
-        private void OnBecameInvisible() {
-            marioHealth.KillMario();
-        }
-
         private void LateUpdate() {
 
             switch (horizontalDirection) {
@@ -175,6 +173,7 @@ namespace mariofake {
             }
 
             if (readyToJump) {
+                jumpSound.Play();
                 rb2D.velocity += new Vector2(0f, jumpForce);
                 readyToJump = false;
                 isJumping = true;

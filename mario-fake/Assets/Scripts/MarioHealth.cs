@@ -11,6 +11,7 @@ namespace mariofake {
         [SerializeField] private float invincibleTime = default;
         [SerializeField] [Range(0f, 1f)] private float alphaValue = default;
         [SerializeField] private SpriteRenderer skinRenderer = default;
+        [SerializeField] private AudioSource deathSound = default;
 
         public static event UnityAction OnMarioDeath;
 
@@ -61,6 +62,7 @@ namespace mariofake {
         }
 
         public void KillMario() {
+            deathSound.Play();
             OnMarioDeath?.Invoke();
             currentHealth = 0;
             Destroy(gameObject);
